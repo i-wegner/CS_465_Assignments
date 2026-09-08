@@ -7,24 +7,22 @@ s_colour = df['Colour'].drop_duplicates()
 s_model = df['Model'].drop_duplicates()
 
 num_colours = 0
-num_models = 0
-
-model_list = []
 colour_list = []
+colour_dict = {}
 
-for colour in s_colour:
+num_models = 0
+model_list = []
+model_dict = {}
+
+for i in s_colour:
+    colour_list.append(i)
+    colour_dict.update({num_colours : colour_list[num_colours]})
     num_colours += 1
-    colour_list.append(colour)
-for model in s_model:
+for i in s_model:
+    model_list.append(i)
+    model_dict.update({num_models : model_list[num_models]})
     num_models += 1
-    model_list.append(model)
 
 print(f'There are {num_colours} distinct colours and {num_models} distinct models in the dataframe.\n')
 print(f'The colours are: {colour_list}')
 print(f'The models are: {model_list}')
-
-colour_dict = {}
-for i in range(num_colours):
-    colour_dict.update({i : colour_list[i]})
-
-print(colour_dict)
