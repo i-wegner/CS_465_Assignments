@@ -21,3 +21,4 @@ https://docs.python.org/3/faq/programming.html?utm_source=chatgpt.com#id49
   -> How to create a multidimensional list
 https://www.w3schools.com/python/python_lists_comprehension.asp
 https://www.geeksforgeeks.org/python/python-using-2d-arrays-lists-the-right-way/
+https://www.geeksforgeeks.org/python/slice-a-2d-list-in-python/
