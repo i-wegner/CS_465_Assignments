@@ -30,3 +30,10 @@ first = df.iloc[0] # this saves the variable 'first' as a pandas series
 second = df.iloc[1]
 
 print(first.values[0], first.values[1]) #returns a pandas string array
+
+cube = [[0] * num_models for i in range(num_colours)]
+for row in cube:
+    print(row)
+
+print(id(cube[0]))
+print(id(cube[1]))
