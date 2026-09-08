@@ -22,3 +22,9 @@ for model in s_model:
 print(f'There are {num_colours} distinct colours and {num_models} distinct models in the dataframe.\n')
 print(f'The colours are: {colour_list}')
 print(f'The models are: {model_list}')
+
+colour_dict = {}
+for i in range(num_colours):
+    colour_dict.update({i : colour_list[i]})
+
+print(colour_dict)
