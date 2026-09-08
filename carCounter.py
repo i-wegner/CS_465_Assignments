@@ -27,3 +27,7 @@ cube = [[0]*num_models]*num_colours
 
 for row in cube:
     print(row)
+
+for key in colour_dict:
+    temp = df[df['Colour'] == colour_dict.get(key)]
+    print(f'The number of {colour_dict.get(key)} cars is {temp.shape[0]}')
