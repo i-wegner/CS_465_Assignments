@@ -3,8 +3,8 @@ import pandas as pd
 df = pd.read_csv('cars-class.csv', header = None)
 df = df.rename(columns={0:'Colour', 1:'Model'})
 
-s_colour = df['Colour'].drop_duplicates() # Creates a pandas series with only the unique colours from df
-s_model = df['Model'].drop_duplicates() # Creates a pandas series with only the unique models from df
+s_colour = df['Colour'].drop_duplicates() # create a pandas series with only the unique colours from df
+s_model = df['Model'].drop_duplicates() # create a pandas series with only the unique models from df
 
 num_colours = 0
 colour_dict = {}
@@ -19,8 +19,13 @@ for i in s_model:
     model_dict.update({num_models : s_model.iloc[num_models]})
     num_models += 1
 
-cube = [[0] * num_models for i in range(num_colours)] # instantiate a 2d array (cube) with num_models columns and num_colours rows
+cube = [[0] * (num_models + 1) for i in range(num_colours + 1)] # instantiate a 2d array (cube) with num_models columns and num_colours rows
 
+# iterate through df
+# set temp_colour/model as program iterates through
+# since keys are all unique and based on order that the colour/model was encounted in their respective series,
+# reverse search the dictionary for the key associated with that value and use that key as the row/column for that colour/model
+# use temp_row/column to index the cube and increment that model/colour combination by one
 for i in range(df.shape[0]):
     temp_colour = df.iloc[i, 0]
     temp_model = df.iloc[i, 1]
@@ -28,7 +33,11 @@ for i in range(df.shape[0]):
     temp_column = next(key for key, value in model_dict.items() if value == temp_model)
     cube[temp_row][temp_column] += 1
 
-
-
 for row in cube:
     print(row)
+
+for i in range(num_colours):
+    cube[i][num_models] = sum(cube[i][:])
+
+for j in range(num_models):
+    cube[num_colours][j] = sum(cube[:][j])
