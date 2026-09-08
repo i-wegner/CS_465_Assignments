@@ -25,3 +25,4 @@ https://www.geeksforgeeks.org/python/slice-a-2d-list-in-python/
 
 Numpy Matrix:
 https://www.geeksforgeeks.org/python/python-numpy-matrix-sum/
+https://numpy.org/doc/2.3/reference/generated/numpy.sum.html
