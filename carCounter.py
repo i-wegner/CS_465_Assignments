@@ -38,10 +38,10 @@ for i in range(df.shape[0]):
 
 for i in range(num_colours): # calculate marginal total for 
     cube[i][num_models] = cube[i].sum()
+    print(f'{colour_dict[i]} cars: {cube[i][num_models]}')
 for j in range(num_models):
     cube[num_colours][j] = np.sum(cube[:, j])
+    print(f'{model_dict[j]} cars: {cube[num_colours][j]}')
 
-cube[num_colours][num_models] = cube[num_colours].sum()
-# could also sum along the last column, but this syntax is more simple
-
-print(cube)
+cube[num_colours][num_models] = cube[num_colours].sum() # could also sum along the last column, but this syntax is more simple
+print(f'The overall total number of cars sold: {cube[num_colours][num_models]}')
