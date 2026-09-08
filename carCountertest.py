@@ -8,24 +8,25 @@ df = pd.DataFrame(
 )
 
 #df_colour = df[df.duplicated(subset='colour')]
-df_model = df.duplicated(subset = 'model')
+s_model = df.duplicated(subset = 'model')
 
-df_colour = df['colour'].drop_duplicates()
+s_colour = df['colour'].drop_duplicates()
+s_model = df['model'].drop_duplicates()
 
 num_colours = 0
+num_models = 0
 colours_list = []
-for i in range(len(df_colour)):
+models_list = []
+
+for index in s_colour:
     num_colours += 1
-    print(df_colour.iloc(i))
-    #colours_list.append(df_colour[i])
+    colours_list.append(index)
 
-#print(df_model)
+for index in s_model:
+    num_models += 1
+    models_list.append(index)
+
+
+
 print(colours_list)
-#print(type(df_model))
-
-rows = []
-
-#use df.drop_duplicates
-#iterate through to get specfic colours
-#repeat for models
-#build cube
+print(models_list)
