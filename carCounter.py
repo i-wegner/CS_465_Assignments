@@ -20,27 +20,26 @@ for i in s_model:
     num_models += 1
 
 cube = [[0]*num_models]*num_colours # instantiate a 2d array (cube) with num_models columns and num_colours rows
+# this is the problem with my program
+# this instantiation essentially creates five copies of the same list and stores them in cube
+# demonstrated:  
+print(cube[0] is cube[2])
+print(id(cube[0]))
+print(id(cube[1]))
+print(id(cube[3]))
 
 for i in range(df.shape[0]):
     temp_colour = df.iloc[i, 0]
     temp_model = df.iloc[i, 1]
-    for key, value in colour_dict.items():
-        if temp_colour == value:
-            temp_row = key 
-    for key, value in model_dict.items():
-        if temp_model == value:
-            temp_column = key  
+    temp_row = next(key for key, value in colour_dict.items() if value == temp_colour)
+    temp_column = next(key for key, value in model_dict.items() if value == temp_model)
     cube[temp_row][temp_column] += 1
-        
-
-for row in cube:
-    print(row)
 
 
-for key, value in colour_dict.items():
-    if 'Green' == value:
-        print(key)
+
+#for row in cube:
+#    print(row)
 
 
-    # df.size returns rows*columns
-    # df.shape returns a tuple (rows, columns) and index [0] so that we just loop over the rows
+# df.size returns rows*columns
+# df.shape returns a tuple (rows, columns) and index [0] so that we just loop over the rows
