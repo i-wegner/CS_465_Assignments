@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 df = pd.read_csv('cars-class.csv', header = None)
 df = df.rename(columns={0:'Colour', 1:'Model'})
@@ -19,7 +20,9 @@ for i in s_model:
     model_dict.update({num_models : s_model.iloc[num_models]})
     num_models += 1
 
-cube = [[0] * (num_models + 1) for i in range(num_colours + 1)] # instantiate a 2d array (cube) with num_models columns and num_colours rows
+# instantiate a matrix (cube) with num_colours + 1 rows and num_models + 1 columns
+# + for each so that we have the marginal row/column
+cube = np.zeros((num_colours + 1, num_models + 1), dtype = int) 
 
 # iterate through df
 # set temp_colour/model as program iterates through
@@ -33,11 +36,12 @@ for i in range(df.shape[0]):
     temp_column = next(key for key, value in model_dict.items() if value == temp_model)
     cube[temp_row][temp_column] += 1
 
-for row in cube:
-    print(row)
-
-for i in range(num_colours):
-    cube[i][num_models] = sum(cube[i][:])
-
+for i in range(num_colours): # calculate marginal total for 
+    cube[i][num_models] = cube[i].sum()
 for j in range(num_models):
-    cube[num_colours][j] = sum(cube[:][j])
+    cube[num_colours][j] = np.sum(cube[:, j])
+
+cube[num_colours][num_models] = cube[num_colours].sum()
+# could also sum along the last column, but this syntax is more simple
+
+print(cube)
