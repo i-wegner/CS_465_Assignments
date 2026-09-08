@@ -23,6 +23,7 @@ for i in s_model:
     model_dict.update({num_models : model_list[num_models]})
     num_models += 1
 
-print(f'There are {num_colours} distinct colours and {num_models} distinct models in the dataframe.\n')
-print(f'The colours are: {colour_list}')
-print(f'The models are: {model_list}')
+cube = [[0]*num_models]*num_colours
+
+for row in cube:
+    print(row)
