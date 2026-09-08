@@ -30,4 +30,12 @@ for row in cube:
 
 for key in colour_dict:
     temp = df[df['Colour'] == colour_dict.get(key)]
+    temp2 = df[df['Model'] == model_dict.get(key)]
     print(f'The number of {colour_dict.get(key)} cars is {temp.shape[0]}')
+    print(f'The number of {model_dict.get(key)}\'s: {temp2.shape[0]}')
+
+# Check each row of the dataframe and perform a reverse dictionary lookup to match the colour/model combination to
+# their respective columns in the cube
+# Then add one to the corresponding index
+# update cube size to include marginal column and row
+# sum over each row and column -> complete
