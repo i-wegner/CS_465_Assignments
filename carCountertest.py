@@ -26,7 +26,7 @@ for index in s_model:
     num_models += 1
     models_list.append(index)
 
+first = df.iloc[0] # this saves the variable 'first' as a pandas series
+second = df.iloc[1]
 
-
-print(colours_list)
-print(models_list)
+print(first.values[0], first.values[1]) #returns a pandas string array
