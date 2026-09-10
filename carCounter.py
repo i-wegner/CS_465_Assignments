@@ -22,7 +22,7 @@ for i in s_model:
 
 # instantiate a matrix (cube) with num_colours + 1 rows and num_models + 1 columns
 # + for each so that we have the marginal row/column
-cube = np.zeros((num_colours + 1, num_models + 1), dtype = int) 
+cube = np.zeros((num_colours + 1, num_models + 1), dtype = int)
 
 # iterate through df
 # set temp_colour/model as program iterates through
@@ -45,3 +45,5 @@ for j in range(num_models):
 
 cube[num_colours][num_models] = cube[num_colours].sum() # could also sum along the last column, but this syntax is more simple
 print(f'The overall total number of cars sold: {cube[num_colours][num_models]}')
+
+# test for new URL
