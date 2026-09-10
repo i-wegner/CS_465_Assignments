@@ -45,5 +45,3 @@ for j in range(num_models):
 
 cube[num_colours][num_models] = cube[num_colours].sum() # could also sum along the last column, but this syntax is more simple
 print(f'The overall total number of cars sold: {cube[num_colours][num_models]}')
-
-# test for new URL
