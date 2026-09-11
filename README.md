@@ -1,5 +1,5 @@
-# CS_465_Assignments
-CS 465 coding assignments
+# CS_4xx_Assignments
+CS 4xx coding assignments
 
 Question 3 - Materials Referenced:
 
